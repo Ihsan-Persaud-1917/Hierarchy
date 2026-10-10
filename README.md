@@ -1,10 +1,17 @@
-# ⌘ Hierarchy
+# <span style="color:#8B7CFF">◈</span> Hierarchy
 
-### Understand your codebase as a system, not just a collection of files.
+<p align="center">
+  <img src="https://placehold.co/1200x320/101020/8B7CFF?text=H+I+E+R+A+R+C+H+Y&font=montserrat" alt="Hierarchy — Understand the structure behind the code" width="100%" />
+</p>
 
-**Hierarchy** is a concept for a local-first developer tool designed to make software architecture easier to explore, understand, and reason about.
-
-By combining static analysis with interactive visualization, Hierarchy aims to reveal the relationships hidden within a codebase—from high-level architecture to individual dependencies—and help developers understand the potential consequences of change.
+<p align="center">
+  <strong>Understand your codebase as a system, not just a collection of files.</strong>
+  <br />
+  <br />
+  <img src="https://img.shields.io/badge/STATUS-CONCEPT%20STAGE-8B7CFF?style=for-the-badge" alt="Concept stage" />
+  <img src="https://img.shields.io/badge/APPROACH-LOCAL--FIRST-22D3EE?style=for-the-badge" alt="Local first approach" />
+  <img src="https://img.shields.io/badge/INITIAL%20LANGUAGE-PYTHON-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python first" />
+</p>
 
 <p align="center">
   <em>See the structure. Trace the connections. Understand the system.</em>
@@ -12,121 +19,150 @@ By combining static analysis with interactive visualization, Hierarchy aims to r
 
 ---
 
-> [!NOTE]
-> **Early concept — not yet implemented.**
->
-> Hierarchy is currently in the exploration stage. Its features, architecture, and implementation details are still being developed.
+> [!IMPORTANT]
+> **Hierarchy is an early-stage concept.** No implementation or production-ready functionality exists yet. The features and technical direction described here are planned ideas, not current capabilities.
 
-## ◈ Contents
+## <span style="color:#8B7CFF">✳</span> The Vision
 
-- [Vision](#-vision)
-- [Planned Capabilities](#-planned-capabilities)
-- [Design Principles](#-design-principles)
-- [Technical Direction](#-technical-direction)
-- [Scope](#-scope)
-- [Project Status](#-project-status)
-- [License](#-license)
+Software is more than the sum of its files.
 
----
+Behind every codebase lies a network of components, dependencies, abstractions, and relationships. Understanding that structure often means jumping between files and mentally reconstructing how everything fits together.
 
-## ◈ Vision
+**Hierarchy aims to make that invisible structure explorable.**
 
-Understanding an unfamiliar codebase often means jumping between files, following imports, tracing dependencies, and mentally reconstructing how its components fit together.
+By combining static analysis with interactive visualization, the goal is to help developers move from the big picture to individual implementation details, trace dependencies, and investigate how changes may affect an entire system.
 
-That understanding is valuable—but it shouldn't have to live entirely in a developer's head.
+Not another file browser.
 
-Hierarchy aims to transform a codebase into an **interactive structural model**, allowing developers to move between the big picture and the details, investigate relationships, and discover architectural problems that are difficult to recognize from individual files alone.
+**A different way to understand code.**
 
-The goal isn't simply to visualize code. It's to make the structure and complexity of software easier to understand.
+## <span style="color:#22D3EE">⌘</span> What Hierarchy Could Become
 
-## ◈ Planned Capabilities
+<table>
+  <tr>
+    <td width="50%">
+      <h3>◈ Architecture Explorer</h3>
+      Navigate a codebase through layers of abstraction, from high-level modules to individual classes and functions.
+    </td>
+    <td width="50%">
+      <h3>⤳ Dependency Tracing</h3>
+      Follow incoming and outgoing dependencies to understand how components connect and where relationships lead.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>⌁ Change Impact</h3>
+      Investigate which components may be affected by a proposed change, with traceable evidence behind the results.
+    </td>
+    <td width="50%">
+      <h3>✳ Architectural Insights</h3>
+      Surface potential circular dependencies, excessive coupling, and other structural problems.
+    </td>
+  </tr>
+</table>
 
-| Capability | Direction |
+<sub>All capabilities above are aspirational and subject to change.</sub>
+
+## <span style="color:#A78BFA">◉</span> Design Philosophy
+
+Hierarchy should be as considered in its presentation as it is in its analysis.
+
+| Principle | What it means |
 |:--|:--|
-| **Architecture exploration** | Navigate a codebase through progressively deeper levels of detail. |
-| **Dependency tracing** | Explore incoming and outgoing relationships between components. |
-| **Change-impact analysis** | Investigate which components may be affected by a proposed change. |
-| **Architectural diagnostics** | Surface potential circular dependencies, excessive coupling, and structural issues. |
-| **Source-level context** | Connect architectural insights to the code and relationships that support them. |
+| <span style="color:#8B7CFF">**Clarity**</span> | Reveal complexity progressively without overwhelming the developer. |
+| <span style="color:#22D3EE">**Evidence**</span> | Ground insights in source code and explainable relationships. |
+| <span style="color:#34D399">**Honesty**</span> | Distinguish observed facts from derived conclusions and heuristic warnings. |
+| <span style="color:#FBBF24">**Intentional design**</span> | Make visualization and interaction useful to the developer's reasoning process. |
+| <span style="color:#F472B6">**Local-first**</span> | Center the experience on local code analysis, without requiring a hosted service for core functionality. |
 
-*These capabilities represent the current vision, not implemented functionality. Priorities and scope may change as development progresses.*
+## <span style="color:#FBBF24">⌘</span> Technical Direction
 
-## ◈ Design Principles
+The initial plan is to begin with Python and establish a reliable analysis engine before building the full application.
 
-Hierarchy is intended to be shaped by a few core principles.
+```text
+          SOURCE CODE
+               │
+               ▼
+       ┌────────────────┐
+       │  Python Parser │
+       └────────┬───────┘
+                ▼
+       ┌────────────────┐
+       │ Structural Model│
+       └────────┬───────┘
+                ▼
+       ┌────────────────┐
+       │ Graph Analysis │
+       └────────┬───────┘
+                ▼
+       ┌────────────────┐
+       │ Interactive UI │
+       └────────────────┘
+```
 
-**01 — Clarity over clutter**
+<sub>Conceptual flow only — implementation details remain undecided.</sub>
 
-Complexity should be revealed progressively. An architectural overview should remain understandable without sacrificing access to deeper detail.
+Potential foundations include Python's built-in `ast` module, graph algorithms, and a modern interactive frontend. A desktop application may follow once the analysis engine and interface have matured.
 
-**02 — Evidence over guesswork**
-
-Insights should be grounded in source code and traceable relationships, rather than presented as unexplained conclusions.
-
-**03 — Honest analysis**
-
-Observed facts, derived conclusions, heuristic warnings, and unknowns should be distinguished clearly. The tool should communicate the limits of static analysis.
-
-**04 — Form and function**
-
-Visualization is part of the product's reasoning process, not decoration. Navigation, spatial organization, interaction, and visual hierarchy should make analysis more intuitive.
-
-**05 — Local-first by design**
-
-The intended experience centers on analyzing codebases locally, without requiring a hosted service to perform core analysis.
-
-## ◈ Technical Direction
-
-The initial direction is to build around Python and gradually develop the analysis engine before expanding into the full application.
-
-| Layer | Initial direction |
-|:--|:--|
-| **Source analysis** | Python's built-in `ast` module |
-| **Structural model** | Explicit representations of code entities and relationships |
-| **Analysis** | Dependency traversal, graph algorithms, and architectural checks |
-| **Interface** | A modern, interactive frontend |
-| **Distribution** | Potential desktop application |
-
-These are exploratory choices, not finalized architectural commitments. Implementation details will be determined as the project develops.
-
-## ◈ Scope
-
-Hierarchy will initially focus on **Python codebases**.
-
-Supporting multiple programming languages introduces additional parsing, name-resolution, and analysis challenges. Rather than pursuing broad language support immediately, the initial goal is to establish a reliable foundation for one language.
-
-Additional languages may be considered as the analysis model and user experience mature.
-
-## ◈ Project Status
+## <span style="color:#34D399">◎</span> The Road Ahead
 
 <details>
-<summary><strong>Current stage: Exploration and foundations</strong></summary>
+<summary><strong>Phase 01 — Foundations</strong></summary>
 
-The repository currently serves as the starting point for the project.
-
-Planned early milestones:
-
-- [ ] Establish the foundational Python skills and analysis concepts.
-- [ ] Prototype repository scanning and source-code inspection.
-- [ ] Extract structural information from Python projects.
-- [ ] Build a dependency model and validate its accuracy.
-- [ ] Explore interactive architecture visualization.
-- [ ] Develop toward a usable local application.
-
-These milestones are preliminary and may evolve as the project takes shape.
+- [ ] Develop the initial Python analysis prototype.
+- [ ] Scan repositories and extract structural information.
+- [ ] Model modules and dependency relationships.
+- [ ] Validate results against test projects.
 
 </details>
 
-There is currently no release, installation process, or production-ready functionality.
+<details>
+<summary><strong>Phase 02 — Exploration</strong></summary>
 
-## ◈ License
+- [ ] Build an interactive architecture view.
+- [ ] Support dependency tracing and contextual inspection.
+- [ ] Explore useful navigation and visualization patterns.
 
-No license has been selected yet. Licensing will be determined as the project moves toward implementation.
+</details>
+
+<details>
+<summary><strong>Phase 03 — Intelligence</strong></summary>
+
+- [ ] Investigate change-impact analysis.
+- [ ] Explore architectural diagnostics.
+- [ ] Improve analysis accuracy, performance, and explainability.
+
+</details>
+
+<details>
+<summary><strong>Phase 04 — Product</strong></summary>
+
+- [ ] Develop a cohesive local application.
+- [ ] Evaluate desktop packaging and distribution.
+- [ ] Assess future language support.
+
+</details>
+
+<sub>These are exploratory milestones, not delivery commitments.</sub>
+
+## <span style="color:#F472B6">◇</span> Scope & Licensing
+
+**Starting language:** Python
+
+**Intended approach:** Local-first
+
+**License:** Undecided
+
+The initial focus will be one language rather than attempting to support every ecosystem from the beginning. Additional languages and the eventual licensing model will be considered as the project takes shape.
 
 ---
 
 <p align="center">
-  <strong>Hierarchy</strong>
   <br />
-  <sub>A clearer view of software architecture.</sub>
+  <strong><span style="color:#8B7CFF">HIERARCHY</span></strong>
+  <br />
+  <em>Structure, revealed.</em>
+  <br />
+  <br />
+  <sub>A project at the beginning of its journey.</sub>
 </p>
